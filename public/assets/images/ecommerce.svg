@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768">
+    <defs>
+        <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #19091e;
+      }
+        </style>
+    </defs>
+    <g id="Layer_2" data-name="Layer 2">
+        <rect width="1024" height="768" rx="68.58" ry="68.58"/>
+    </g>
+    <g id="Layer_1" data-name="Layer 1">
+        <path class="cls-2" d="M641.5,88.77c0-6.8,5.47-12.27,12.27-12.27h23.26c11.25,0,21.22,6.54,25.87,16.36h210.14c13.45,0,23.26,12.78,19.74,25.77l-20.96,77.87c-4.35,16.05-18.92,27.25-35.54,27.25h-147.51l2.76,14.57c1.12,5.78,6.19,9.97,12.07,9.97h147.41c6.8,0,12.27,5.47,12.27,12.27s-5.47,12.27-12.27,12.27h-147.41c-17.69,0-32.88-12.58-36.15-29.91l-26.38-138.56c-.36-1.94-2.05-3.32-4.04-3.32h-23.26c-6.8,0-12.27-5.47-12.27-12.27Zm65.45,224.97c0-13.55,10.99-24.54,24.54-24.54s24.54,10.99,24.54,24.54-10.99,24.54-24.54,24.54-24.54-10.99-24.54-24.54h0Zm171.8-24.54c13.55,0,24.54,10.99,24.54,24.54s-10.99,24.54-24.54,24.54h0c-13.55,0-24.54-10.99-24.54-24.54s10.99-24.54,24.54-24.54Z"/>
+    </g>
+    <g id="Layer_3" data-name="Layer 3">
+        <rect class="cls-2" x="99" y="77" width="493" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="99" y="400" width="104" height="104" rx="20" ry="20"/>
+        <rect class="cls-2" x="245" y="400" width="234" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="245" y="464" width="234" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="554" y="400" width="104" height="104" rx="20" ry="20"/>
+        <rect class="cls-2" x="700" y="400" width="234" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="700" y="464" width="234" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="554" y="561" width="104" height="104" rx="20" ry="20"/>
+        <rect class="cls-2" x="700" y="561" width="234" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="700" y="625" width="234" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="99" y="561" width="104" height="104" rx="20" ry="20"/>
+        <rect class="cls-2" x="245" y="561" width="234" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="245" y="625" width="234" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="366" y="152" width="226" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="366" y="227" width="226" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="366" y="302" width="142" height="40" rx="20" ry="20"/>
+        <rect class="cls-2" x="99" y="147" width="195" height="195" rx="20" ry="20"/>
+    </g>
+</svg>

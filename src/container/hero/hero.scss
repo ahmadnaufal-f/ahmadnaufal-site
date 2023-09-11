@@ -1,0 +1,156 @@
+@use "sass:color";
+@import "../../styles/variables.scss";
+
+$light-blue-transparent: color.change($light-blue, $alpha: 0.4);
+$light-blue-transparent-2: color.change($light-blue, $alpha: 0.1);
+$white-transparent: color.change($text-white, $alpha: 0.8);
+$blue: hsl(189, 94%, 67%);
+
+.heroContainer {
+    width: 100%;
+    height: calc(100vh - 75px);
+    display: grid;
+    place-items: center;
+}
+
+.cards.heroCard {
+    border: solid 2px $light-blue-transparent-2;
+    flex-direction: row-reverse;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column-reverse;
+    }
+
+    & .heroText {
+        padding: 0 7.5%;
+
+        & h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: $text-white;
+        }
+
+        & h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: $text-white;
+        }
+
+        & h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: $white-transparent;
+            line-height: 2rem;
+            margin: 0.5rem 0 2rem;
+        }
+
+        @media screen and (max-width: 1024px) {
+            & h2 {
+                font-size: 1.4rem;
+            }
+
+            & h1 {
+                font-size: 2.5rem;
+            }
+
+            & h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            & {
+                padding: 10%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            & {
+                padding: 15% 10%;
+            }
+        }
+
+        @media screen and (max-width: 860px) {
+            & h2 {
+                font-size: 1.2rem;
+            }
+
+            & h1 {
+                font-size: 2rem;
+            }
+
+            & h3 {
+                font-size: 1rem;
+            }
+        }
+
+        & button {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 1.25rem 0.7rem;
+            border-radius: 0.8rem;
+            background-color: $white-transparent;
+            border: solid 2px $white-transparent;
+            color: $background-black;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border: unset;
+            -webkit-transition: all 0.4s ease-out;
+            -moz-transition: all 0.4s ease-out;
+            transform: translateY(0);
+            transition: all 0.4s ease-out;
+            cursor: pointer;
+
+            & p {
+                margin: 0;
+            }
+
+            &:hover {
+                background: $light-blue;
+                transform: translateY(-4px);
+                opacity: 1;
+                box-shadow: 0 0 15px 3px $blue, 0 0 20px 5px $light-blue-transparent-2;
+            }
+
+            @media screen and (max-width: 768px) {
+                & {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    & .heroPicture {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        object-position: 50% 20%;
+        max-width: 540px;
+
+        @media screen and (max-width: 768px) {
+            & {
+                align-items: start;
+            }
+
+            & > img {
+                object-position: 50% 20%;
+            }
+        }
+
+        @media screen and (min-width: 1400px) {
+            & {
+                align-items: start;
+            }
+        }
+
+        & > img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+    }
+}

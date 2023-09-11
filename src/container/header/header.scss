@@ -1,0 +1,230 @@
+@use "sass:color";
+@import "../../styles/variables.scss";
+
+$hamburger-layer-color: $text-white;
+$hamburger-layer-color-hover: $text-white;
+$hamburger-layer-color-active: $text-white;
+$hamburger-layer-color-active-hover: $text-white;
+$hamburger-padding-x: 0;
+$hamburger-padding-y: 0;
+$hamburger-types: (spin);
+$hamburger-hover-opacity: 1;
+$hamburger-layer-width: 30px;
+$hamburger-layer-height: 3px;
+
+@import "../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+$background-black-transparent: color.change($background-black, $alpha: 0.9);
+$light-blue-transparent: color.change($light-blue, $alpha: 0.5);
+$light-blue-transparent-2: color.change($light-blue, $alpha: 0.2);
+$light-blue-lighter: color.change($light-blue, $lightness: 100%);
+
+.nav-link {
+    color: $text-white;
+}
+
+.navbar {
+    display: flex;
+    background-color: $background-black-transparent;
+    padding: 1.25rem 4rem;
+    justify-content: space-between;
+    position: relative;
+    z-index: 22;
+    border-bottom: 1px solid $light-blue-transparent;
+    box-shadow: 0 3px 4px 0 $light-blue-transparent-2, 0 3px 8px 0 $light-blue-transparent-2;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+
+    & > .logo-text {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+        font-weight: 500;
+        color: $text-white;
+        display: flex;
+        overflow: hidden;
+        line-height: 1.3rem;
+        height: 1.3rem;
+
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+
+        & .logo-text-change {
+            display: inline-block;
+            margin-right: 0.4em;
+        }
+
+        & .logo-text-head,
+        & .logo-text-foot {
+            display: block;
+            margin-block-end: 1px;
+            text-align: end;
+            transition: all 0.5s ease-in-out;
+        }
+
+        &:hover .logo-text-head {
+            transform: translateY(-1.3rem);
+        }
+
+        &:hover .logo-text-foot {
+            transform: translateY(-1.3rem);
+        }
+    }
+
+    & > img {
+        width: 32px;
+        height: 32px;
+        margin-right: 24px;
+        fill: $text-white;
+    }
+}
+
+.navbar-links-wrapper {
+    & > div {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        column-gap: 40px;
+        row-gap: 30px;
+
+        @media screen and (max-width: 1024px) {
+            column-gap: 30px;
+        }
+
+        & a {
+            position: relative;
+            text-decoration: none;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 0;
+                left: 0;
+                bottom: -24px;
+                background: $light-blue;
+                transition: all 0.1s ease-in-out;
+                box-shadow: 0 0 10px 0 $light-blue-transparent-2;
+            }
+        }
+
+        & a[data-is-icon="true"]::after {
+            bottom: -22px;
+        }
+
+        & a:last-child {
+            margin-right: 0;
+        }
+
+        & a:hover {
+            color: $light-blue;
+
+            &::after {
+                height: 2px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        height: 100vh;
+        height: 100lvh;
+        width: 100vw;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        z-index: 20;
+        font-size: 1.2rem;
+        font-weight: 500;
+        background-color: $background-black-transparent;
+        opacity: 0;
+        visibility: hidden;
+        transition: visibility 0s, opacity 0.3s ease-in-out;
+
+        & > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+
+            & > div:last-child {
+                margin-block-end: 55px;
+            }
+
+            & a {
+                transform: translateY(-100%);
+                transition: all 0.3s ease-in-out;
+                margin-right: 0;
+            }
+
+            & a:hover::after {
+                height: 0;
+            }
+        }
+    }
+}
+
+.navbar[aria-expanded="true"] .navbar-links-wrapper {
+    @media screen and (max-width: 768px) {
+        opacity: 1;
+        visibility: visible;
+        transition: visibility 0s, opacity 0.5s ease-in-out;
+
+        & > div a {
+            transform: translateY(0);
+            transition: all 0.5s ease-in-out;
+        }
+    }
+}
+
+.hamburger {
+    padding-top: 6px;
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
+.nav-socmed-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    & > a {
+        font-size: 1.2rem;
+        color: $text-white;
+        margin-right: 0;
+
+        &:hover {
+            color: $light-blue-lighter;
+        }
+
+        &:hover svg {
+            filter: drop-shadow(0 0 0.5rem $light-blue-lighter);
+        }
+    }
+}
+
+.nav-separator {
+    width: 2px;
+    height: 24px;
+    background-color: $text-white;
+
+    @media screen and (max-width: 768px) {
+        width: 0;
+        height: 1px;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+.navbar[aria-expanded="true"] .nav-separator {
+    @media screen and (max-width: 768px) {
+        width: 120px;
+        transform: translateY(0);
+        transition: width 0.5s 0.3s;
+    }
+}

@@ -1,0 +1,113 @@
+@use "sass:color";
+@import "../../styles/variables.scss";
+
+.cards.about-container[data-height="300"] {
+    height: 350px !important;
+    column-gap: 5%;
+    row-gap: 32px;
+    padding: 0 3%;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        height: auto !important;
+    }
+}
+
+.about__illustration {
+    flex: 300px 1 1;
+    max-width: 330px;
+    height: 100%;
+    display: grid;
+    place-items: center;
+
+    @media screen and (max-width: 768px) {
+        padding-inline: 3rem;
+        flex-basis: content;
+    }
+}
+
+.about__text {
+    flex: 300px 1 1;
+
+    & p {
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: color.change($text-white, $alpha: 0.9);
+        line-height: 2rem;
+        margin: 0.5rem 0 1rem;
+
+        @media screen and (max-width: 900px) {
+            font-size: 0.8rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+
+    & h2 {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: $text-white;
+        margin-block-end: 1rem;
+
+        @media screen and (max-width: 900px) {
+            font-size: 1.4rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            font-size: 1.8rem;
+        }
+    }
+
+    & a {
+        text-decoration: none;
+        position: relative;
+        transform: translateY(0);
+        transition: all 0.3s ease;
+
+        & p {
+            display: inline-block;
+            color: $light-blue;
+            font-size: 1.25rem;
+            margin: 0;
+        }
+
+        & span {
+            margin-inline-end: 12px;
+            font-size: 1.4rem;
+            color: $light-blue;
+        }
+
+        &:hover p {
+            color: color.change($light-blue, $saturation: 80%);
+        }
+
+        &:hover span {
+            color: color.change($light-blue, $saturation: 80%);
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 2px;
+            width: calc(100% - 3px);
+            height: 2px;
+            background-color: $light-blue;
+            box-shadow: 0 1px 4px $light-blue;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 0.3s ease;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+        }
+    }
+}
