@@ -8,7 +8,7 @@ $blue: hsl(189, 94%, 67%);
 
 .heroContainer {
     width: 100%;
-    height: calc(100vh - 75px);
+    height: 100%;
     display: grid;
     place-items: center;
 }
@@ -76,11 +76,12 @@ $blue: hsl(189, 94%, 67%);
             }
 
             & h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             & h3 {
                 font-size: 1rem;
+                line-height: 1.4rem;
             }
         }
 

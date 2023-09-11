@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faBuilding, faShoppingCart, faChartLine, faMobileAlt } from "@fortawesome/free-solid-svg-icons"
 import "./services.scss"
-import Image from "next/image"
 import { ReactSVG } from "react-svg"
+import { motion } from "framer-motion"
 
 type itemProps = {
     title: string
@@ -120,7 +120,15 @@ function Services() {
             <div className="accordion">
                 {items.map((item, index) => {
                     return (
-                        <div className="accordion__item " key={index} data-index={index} onClick={() => buttonClickHandler(index)}>
+                        <motion.div
+                            className="accordion__item "
+                            key={item.title}
+                            data-index={index}
+                            onClick={() => buttonClickHandler(index)}
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: 0.2 + 0.1 * index }}
+                        >
                             <button className="accordion__heading" aria-expanded={index === activeIndex} aria-controls={`panel${index}-content`}>
                                 <div className="accordion__icon">
                                     <FontAwesomeIcon icon={item.icon} />
@@ -133,7 +141,7 @@ function Services() {
                                     <ReactSVG src={item.pic} />
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     )
                 })}
             </div>

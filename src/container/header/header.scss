@@ -27,10 +27,18 @@ $light-blue-lighter: color.change($light-blue, $lightness: 100%);
     background-color: $background-black-transparent;
     padding: 1.25rem 4rem;
     justify-content: space-between;
-    position: relative;
     z-index: 22;
     border-bottom: 1px solid $light-blue-transparent;
     box-shadow: 0 3px 4px 0 $light-blue-transparent-2, 0 3px 8px 0 $light-blue-transparent-2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    @media screen and (max-width: 768px) {
+        padding: 1.25rem 2rem;
+    }
 }
 
 .navbar-logo {
@@ -227,4 +235,15 @@ $light-blue-lighter: color.change($light-blue, $lightness: 100%);
         transform: translateY(0);
         transition: width 0.5s 0.3s;
     }
+}
+
+.progress-bar {
+    position: fixed;
+    top: 71px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    box-shadow: 0 2px 5px 0 hsl(103, 67%, 80%);
+    z-index: 20;
+    transform-origin: 0%;
 }

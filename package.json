@@ -1,37 +1,38 @@
 {
-  "name": "ahmadnaufal-site",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.2",
-    "@fortawesome/free-brands-svg-icons": "^6.4.2",
-    "@fortawesome/free-regular-svg-icons": "^6.4.2",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@types/node": "20.6.0",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.7",
-    "bootstrap": "^5.3.1",
-    "eslint": "^8.49.0",
-    "eslint-config-next": "^13.4.19",
-    "framer-motion": "^10.16.4",
-    "hamburgers": "^1.2.1",
-    "lottie-react": "^2.4.0",
-    "next": "13.4.19",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-headroom": "^3.2.1",
-    "react-svg": "^16.1.24",
-    "sass": "^1.66.1",
-    "typescript": "5.2.2"
-  },
-  "devDependencies": {
-    "@types/react-headroom": "^3.2.0"
-  }
+    "name": "ahmadnaufal-site",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "deploy": "next build && firebase deploy"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.4.2",
+        "@fortawesome/free-brands-svg-icons": "^6.4.2",
+        "@fortawesome/free-regular-svg-icons": "^6.4.2",
+        "@fortawesome/free-solid-svg-icons": "^6.4.2",
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "@types/node": "20.6.0",
+        "@types/react": "18.2.21",
+        "@types/react-dom": "18.2.7",
+        "bootstrap": "^5.3.1",
+        "eslint": "^8.49.0",
+        "eslint-config-next": "^13.4.19",
+        "framer-motion": "^10.16.4",
+        "hamburgers": "^1.2.1",
+        "lottie-react": "^2.4.0",
+        "next": "13.4.19",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-headroom": "^3.2.1",
+        "react-svg": "^16.1.24",
+        "sass": "^1.66.1",
+        "typescript": "5.2.2"
+    },
+    "devDependencies": {
+        "@types/react-headroom": "^3.2.0"
+    }
 }

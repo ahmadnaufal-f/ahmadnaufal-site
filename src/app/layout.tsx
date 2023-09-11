@@ -9,6 +9,7 @@ config.autoAddCss = false
 import type { Metadata } from "next"
 import { Outfit } from "next/font/google"
 import Header from "@/container/header/header"
+import Background from "@/components/background/background"
 
 const outfit = Outfit({ subsets: ["latin"] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body className={outfit.className}>
+                <Background />
                 <Header />
                 {children}
             </body>
