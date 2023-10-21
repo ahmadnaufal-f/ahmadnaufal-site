@@ -33,7 +33,7 @@
     & p {
         font-size: 1.25rem;
         font-weight: 400;
-        color: color.change($text-white, $alpha: 0.9);
+        color: $text-white;
         line-height: 2rem;
         margin: 0.5rem 0 1rem;
 
@@ -47,10 +47,13 @@
     }
 
     & h2 {
-        font-size: 1.8rem;
-        font-weight: 500;
+        font-size: 2rem;
+        font-weight: 700;
         color: $text-white;
         margin-block-end: 1rem;
+        text-decoration: underline $light-pink 2px;
+        text-decoration-skip-ink: none;
+        text-underline-offset: 8px;
 
         @media screen and (max-width: 900px) {
             font-size: 1.4rem;

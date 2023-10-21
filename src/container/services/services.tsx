@@ -6,6 +6,10 @@ import { faUser, faBuilding, faShoppingCart, faChartLine, faMobileAlt } from "@f
 import "./services.scss"
 import { ReactSVG } from "react-svg"
 import { motion } from "framer-motion"
+import { Signika_Negative, Outfit } from "next/font/google"
+
+const signika = Signika_Negative({ subsets: ["latin"] })
+const outfit = Outfit({ subsets: ["latin"] })
 
 type itemProps = {
     title: string
@@ -115,9 +119,9 @@ function Services() {
     }, [isDesktop])
 
     return (
-        <section className="cards services-container">
+        <section className={`cards services-container ${signika.className}`}>
             <h2 className="services__title">My range of services</h2>
-            <div className="accordion">
+            <div className={`accordion ${outfit.className}`}>
                 {items.map((item, index) => {
                     return (
                         <motion.div
@@ -133,7 +137,7 @@ function Services() {
                                 <div className="accordion__icon">
                                     <FontAwesomeIcon icon={item.icon} />
                                 </div>
-                                <h3>{item.title}</h3>
+                                <h3 className={signika.className}>{item.title}</h3>
                             </button>
                             <div className="accordion__content" id={`panel${index}-content`} aria-hidden={index !== activeIndex}>
                                 <p>{item.description}</p>

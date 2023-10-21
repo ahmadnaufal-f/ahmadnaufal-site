@@ -1,12 +1,15 @@
-'use client'
+"use client"
 
-import React, { useRef } from 'react'
-import './about.scss'
-import Lottie, { LottieRefCurrentProps } from 'lottie-react'
-import programmer from '../../../public/assets/lottie/programmer.json'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
-import { useInView } from 'framer-motion'
+import React, { useRef } from "react"
+import "./about.scss"
+import Lottie, { LottieRefCurrentProps } from "lottie-react"
+import programmer from "../../../public/assets/lottie/programmer.json"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCaretRight } from "@fortawesome/free-solid-svg-icons"
+import { useInView } from "framer-motion"
+import { Signika_Negative } from "next/font/google"
+
+const signika = Signika_Negative({ subsets: ["latin"] })
 
 function About() {
     const lottieRef = useRef<LottieRefCurrentProps>(null)
@@ -24,7 +27,7 @@ function About() {
                 <Lottie lottieRef={lottieRef} animationData={programmer} loop={false} autoPlay={false} />
             </div>
             <div className="about__text">
-                <h2 className="about__title">A brief profile of myself</h2>
+                <h2 className={`about__title ${signika.className}`}>A brief profile of myself</h2>
                 <p className="about__description">
                     I am a passionate front-end developer with 2 years of experience in creating stunning and responsive websites. I reside in the
                     vibrant city of West Jakarta, where I constantly seek inspiration from my surroundings to create designs that not only look great

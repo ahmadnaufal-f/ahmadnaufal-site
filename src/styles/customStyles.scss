@@ -20,10 +20,10 @@ $card-mobile-height: 75vh;
     margin-inline: auto;
     width: calc(100% - 10rem);
     max-width: $card-max-width;
-    height: $card-height !important;
+    height: $card-height;
     overflow: hidden;
     border-radius: 2rem !important;
-    background-color: transparent !important;
+    background-color: transparent;
 
     @media screen and (max-width: 768px) {
         margin-block: 2rem;
@@ -37,7 +37,7 @@ $card-mobile-height: 75vh;
 .glass {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.15);
 
-    &:before {
+    &:after {
         content: "";
         position: absolute;
         top: 0;
@@ -48,5 +48,6 @@ $card-mobile-height: 75vh;
         border-radius: 2rem;
         box-shadow: inset 0 0 500px $light-blue-transparent-2;
         filter: blur(10px);
+        z-index: -1;
     }
 }

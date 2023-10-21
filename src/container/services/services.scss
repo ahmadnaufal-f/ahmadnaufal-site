@@ -22,8 +22,11 @@ $header-height: 45px;
 .services__title {
     text-align: center;
     margin-block-end: 2rem;
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: underline $light-pink 2px;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 8px;
 }
 
 .accordion {
