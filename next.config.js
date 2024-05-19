@@ -30,5 +30,8 @@ module.exports = {
         unoptimized: true,
     },
     trailingSlash: true,
+    env: {
+        PORT: process.env.PORT,
+    },
     // ...other config
 }
