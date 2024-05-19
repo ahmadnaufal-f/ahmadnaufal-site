@@ -29,6 +29,6 @@ module.exports = {
     images: {
         unoptimized: true,
     },
-    exportTrailingSlash: true,
+    trailingSlash: true,
     // ...other config
 }

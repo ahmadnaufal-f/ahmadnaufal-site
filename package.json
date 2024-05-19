@@ -9,6 +9,10 @@
         "lint": "next lint",
         "deploy": "next build && firebase deploy"
     },
+    "engines": {
+        "node": "20.9.0",
+        "npm": "10.2.5"
+    },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.4.2",
         "@fortawesome/free-brands-svg-icons": "^6.4.2",
@@ -35,6 +39,7 @@
     },
     "devDependencies": {
         "@types/lodash": "^4.14.198",
-        "@types/react-headroom": "^3.2.0"
+        "@types/react-headroom": "^3.2.0",
+        "dotenv": "^16.4.5"
     }
 }
