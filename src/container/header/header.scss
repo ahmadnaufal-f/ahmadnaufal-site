@@ -149,7 +149,7 @@ $light-blue-lighter: color.change($light-blue, $lightness: 100%);
         background-color: $background-black-transparent;
         opacity: 0;
         visibility: hidden;
-        transition: visibility 0s, opacity 0.3s ease-in-out;
+        transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
 
         & > div {
             display: flex;

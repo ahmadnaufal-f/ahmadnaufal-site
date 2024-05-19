@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons"
 import { useInView } from "framer-motion"
 import { Signika_Negative } from "next/font/google"
+import Link from "next/link"
 
 const signika = Signika_Negative({ subsets: ["latin"] })
 
@@ -29,16 +30,16 @@ function About() {
             <div className="about__text">
                 <h2 className={`about__title ${signika.className}`}>A brief profile of myself</h2>
                 <p className="about__description">
-                    I am a passionate front-end developer with 2 years of experience in creating stunning and responsive websites. I reside in the
-                    vibrant city of West Jakarta, where I constantly seek inspiration from my surroundings to create designs that not only look great
+                    I am a passionate front-end developer with 2 and half years of experience in creating stunning and responsive websites. I reside
+                    in the vibrant city of Bekasi, where I constantly seek inspiration from my surroundings to create designs that not only look great
                     but also provide an exceptional user experience.
                 </p>
-                <a href="#about" className="about__button">
+                <Link href="/about" className="about__button">
                     <span>
                         <FontAwesomeIcon icon={faCaretRight} />
                     </span>
                     <p>Dive deeper into my background</p>
-                </a>
+                </Link>
             </div>
         </section>
     )

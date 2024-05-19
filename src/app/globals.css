@@ -33,6 +33,14 @@ h2 {
 
 body::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
+    width: 0px; /* Safari and Chrome, including Brave */
+    height: 0px; /* Ensure both horizontal and vertical scrollbars are hidden */
+    background: transparent; /* Optional: just to be extra sure */
+}
+
+body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
 html {

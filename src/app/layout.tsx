@@ -7,11 +7,13 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 config.autoAddCss = false
 
 import type { Metadata } from "next"
-import { Outfit } from "next/font/google"
+import { Source_Sans_3 } from "next/font/google"
 import Header from "@/container/header/header"
 import Background from "@/components/background/background"
+import { Suspense } from "react"
+import Loading from "@/app/loading"
 
-const outfit = Outfit({ subsets: ["latin"] })
+const sourceSans = Source_Sans_3({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
     title: "Ahmad Naufal Site",
@@ -21,10 +23,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={outfit.className}>
+            <body className={sourceSans.className}>
                 <Background />
                 <Header />
-                {children}
+                <Suspense fallback={<Loading />}>{children}</Suspense>
             </body>
         </html>
     )

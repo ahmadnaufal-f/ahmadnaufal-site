@@ -1,0 +1,207 @@
+@use "sass:color";
+@import "../../styles/variables.scss";
+
+$light-blue-transparent: color.change($light-blue, $alpha: 0.2);
+$light-blue-transparent-2: color.change($light-blue, $alpha: 0.1);
+
+$light-red: color.change($light-blue, $hue: 0, $lightness: 50%, $alpha: 0.5);
+$light-green: color.change($light-blue, $hue: 120, $lightness: 50%, $alpha: 0.5);
+$light-dark-blue: color.change($light-blue, $hue: 232, $lightness: 50%, $alpha: 0.5);
+$light-purple: color.change($light-blue, $hue: 280, $lightness: 50%, $alpha: 0.5);
+$light-white: color.change($text-white, $lightness: 100%, $alpha: 0.3);
+
+.mainPageContact {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-inline: 1rem;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.heroCard.cards {
+    max-width: unset;
+    width: 100%;
+}
+
+.mainPageContact .heroCard {
+    margin: 8rem auto 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row-reverse;
+    flex: 1;
+    gap: 2rem;
+    border: solid 2px $light-blue-transparent-2;
+    height: 300px;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column-reverse;
+        height: fit-content;
+    }
+
+    .heroText {
+        text-align: center;
+    }
+}
+
+.heroText {
+    padding: 0 2rem 0 0;
+    flex-grow: 1;
+
+    h1 {
+        text-wrap: balance;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 0 2rem 2rem;
+
+        h1 {
+            font-size: 1.6em;
+        }
+    }
+}
+
+.heroPicture {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.heroPicture img {
+    object-fit: cover;
+    object-position: center;
+    width: auto;
+    height: 100%;
+
+    @media screen and (max-width: 768px) {
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.content {
+    margin: 3rem auto 0;
+    padding-block-end: 5rem;
+    padding-inline: 1rem;
+    max-width: 1000px;
+
+    p {
+        line-height: 1.75;
+        text-align: center;
+    }
+
+    .contactButtonContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        width: 60%;
+        margin: 2rem auto 4rem;
+        flex-wrap: wrap;
+    }
+
+    .contactButtonContainer a {
+        flex: 240px 1 1;
+        min-width: 240px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .contactButton {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding: 1rem;
+        position: relative;
+        overflow: hidden;
+        gap: 1rem;
+
+        border-radius: 1rem;
+        align-items: center;
+        justify-content: center;
+        outline: solid 2px $light-blue-transparent-2;
+        color: $text-white;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+
+        p {
+            text-align: start;
+            text-indent: 0;
+        }
+    }
+
+    .contactButton:hover {
+        background: $light-red;
+        outline: solid 2px $light-red;
+    }
+
+    .contact-button.green:hover {
+        background: $light-green;
+        outline: solid 2px $light-green;
+    }
+
+    .contactIconContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        width: fit-content;
+        margin: 0 auto;
+
+        a {
+            width: fit-content;
+            height: fit-content;
+            padding: 0.5rem 0.85rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            font-size: 1.2rem;
+            color: $text-white;
+        }
+    }
+
+    .contactIcon:hover {
+        background: $light-dark-blue;
+        outline: solid 2px $light-dark-blue;
+    }
+
+    .contactIcon.ig:hover {
+        background: $light-purple;
+        outline: solid 2px $light-purple;
+    }
+
+    .contactIcon.gh:hover {
+        background: $light-white;
+        outline: solid 2px $light-white;
+    }
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 1rem 6rem;
+
+    a {
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: $light-blue;
+
+        svg {
+            margin-inline-end: 0.5rem;
+        }
+
+        &:hover {
+            background-color: $light-blue-transparent;
+        }
+    }
+}

@@ -29,7 +29,7 @@ $card-mobile-height: 75vh;
         margin-block: 2rem;
         width: calc(100% - 2rem);
         max-width: $card-mobile-max-width;
-        height: $card-mobile-height !important;
+        height: $card-mobile-height;
         flex-direction: column;
     }
 }

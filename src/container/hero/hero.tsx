@@ -1,6 +1,7 @@
 import "./hero.scss"
 import Image from "next/image"
 import { Signika_Negative } from "next/font/google"
+import Link from "next/link"
 
 const signika = Signika_Negative({ subsets: ["latin"] })
 
@@ -12,9 +13,11 @@ function Hero() {
                     <h2>Hi, my name is</h2>
                     <h1 className={signika.className}>Ahmad Naufal</h1>
                     <h3>A web developer whose passion lies on both programming and designing</h3>
-                    <button className={"heroButton"}>
-                        <p>Contact Me</p>
-                    </button>
+                    <Link href="/contact">
+                        <button className={"heroButton"}>
+                            <p>Contact Me</p>
+                        </button>
+                    </Link>
                 </div>
                 <div className={"heroPicture"}>
                     <Image src={"/assets/images/hero.jpg"} alt="hero" width={896} height={896} />

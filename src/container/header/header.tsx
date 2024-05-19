@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faCodepen, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import "./header.scss"
 import { motion, useScroll } from "framer-motion"
+import Link from "next/link"
 
 function Header() {
     const [expanded, setExpanded] = useState(false)
@@ -76,27 +77,31 @@ function Header() {
                     </button>
                 </div>
                 <div className="navbar-links-wrapper">
-                    <div className="navbar-links">
-                        <a href="#home" className="nav-link">
+                    <div
+                        className="navbar-links"
+                        onClick={() => {
+                            setExpanded(false)
+                            document.getElementById("hamburger")?.classList.remove("is-active")
+                            document.body.style.overflow = "auto"
+                        }}
+                    >
+                        <Link href="/" className="nav-link">
                             Main Page
-                        </a>
-                        <a href="#about" className="nav-link">
+                        </Link>
+                        <Link href="/about" className="nav-link">
                             About
-                        </a>
-                        <a href="#contact" className="nav-link">
+                        </Link>
+                        <Link href="/contact" className="nav-link">
                             Contact
-                        </a>
+                        </Link>
                         <div className="nav-separator"></div>
                         <div className="nav-socmed-wrapper">
-                            <a href="https://github.com/ahmadnaufal-f" {...linkProps}>
+                            <Link href="https://github.com/ahmadnaufal-f" {...linkProps}>
                                 <FontAwesomeIcon icon={faGithub} />
-                            </a>
-                            <a href="https://www.linkedin.com/in/ahmad-naufal-firdaus-9a427a131/" {...linkProps}>
+                            </Link>
+                            <Link href="https://www.linkedin.com/in/ahmad-naufal-firdaus-9a427a131/" {...linkProps}>
                                 <FontAwesomeIcon icon={faLinkedin} />
-                            </a>
-                            <a href="https://codepen.io/ahmadnaufal-f" {...linkProps}>
-                                <FontAwesomeIcon icon={faCodepen} />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

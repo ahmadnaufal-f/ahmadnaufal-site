@@ -5,137 +5,142 @@ import { Signika_Negative } from "next/font/google"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
+import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCaretRight } from "@fortawesome/free-solid-svg-icons"
+import { sharedTransition } from "@/utils/utils"
 
 const signika = Signika_Negative({ subsets: ["latin"] })
 
+interface PortfolioCardProps {
+    title: string
+    description: string
+    hashtags: string[]
+    preview: string
+    color: string
+    hue: number
+    icon: string
+    link: string
+    category: string
+    titleColor?: string
+    dontUseBorderForPreview?: boolean
+}
+
+function PortfolioCard({
+    title,
+    description,
+    hashtags,
+    preview,
+    hue,
+    color,
+    icon,
+    link,
+    category,
+    titleColor,
+    dontUseBorderForPreview,
+}: PortfolioCardProps) {
+    const colorVar = { "--hue": hue, "--color-theme": color } as React.CSSProperties
+    const ref = useRef<HTMLDivElement>(null)
+    const isInView = useInView(ref, { margin: "200px 0px" })
+    const initialStyle = {
+        background: "linear-gradient(135deg, hsla(var(--hue), 0%, 40%, 0.1) 0%, hsla(var(--hue), 0%, 80%, 0) 75%)",
+        outline: "solid 1px hsla(var(--hue), 67%, 60%, 0)",
+    }
+    const appliedStyle = {
+        background: "linear-gradient(135deg, hsla(var(--hue), 45%, 40%, 0.3) 0%, hsla(var(--hue), 67%, 80%, 0.1) 75%)",
+        outline: "solid 1px hsla(var(--hue), 67%, 60%, 0.3)",
+    }
+
+    return (
+        <motion.div
+            className="project-container glass"
+            style={colorVar}
+            animate={!isInView ? initialStyle : appliedStyle}
+            ref={ref}
+            transition={{ ...sharedTransition, delay: 0.5 }}
+        >
+            <div className="project-title-container">
+                <div className="project-icon">
+                    <Image src={icon} alt="Project Icon" width={45} height={45} />
+                </div>
+                <h3 style={titleColor ? { color: titleColor } : {}}>{title}</h3>
+            </div>
+            <div className="project-content">
+                <div className="project-preview" style={dontUseBorderForPreview ? { outline: "unset", boxShadow: "unset" } : {}}>
+                    <Image src={preview} alt="Project Preview" width={360} height={360} />
+                </div>
+                <div className="project-details">
+                    <p className="project-category">{category}</p>
+                    <p className="project-description">{description}</p>
+                    <div className="project-hashtags">
+                        {hashtags.map((hashtag, index) => (
+                            <span key={index}>{hashtag}</span>
+                        ))}
+                    </div>
+                    <Link href={link} target="_blank" className="project-link">
+                        <span>
+                            <FontAwesomeIcon icon={faCaretRight} />
+                        </span>
+                        <p>Visit site</p>
+                    </Link>
+                </div>
+            </div>
+        </motion.div>
+    )
+}
+
 export default function Portfolio() {
-    const refRajawali = useRef(null)
-    const isInView = useInView(refRajawali, { margin: "-100px" })
+    const container = useRef<HTMLDivElement>(null)
+
     return (
         <section className="section-container">
             <div className="portfolio-container">
-                <h2 className={signika.className}>My works</h2>
-                <div className="portfolio glass cards rajawali" ref={refRajawali}>
-                    <div className="left-column">
-                        <div className="logo-wrapper">
-                            <Image alt="rajawali production" src="/assets/images/favicon-rajawali.png" width={72} height={72} />
-                        </div>
-                        <div className="title-wrapper">
-                            <h3>Rajawali Production Indonesia</h3>
-                            <h4>Company Profile Website</h4>
-                            <div className="colors-container">
-                                <div className="color color-1"></div>
-                                <div className="color color-2"></div>
-                                <div className="color color-3"></div>
-                            </div>
-                            <a href="" className="portfolio-link">
-                                Go deeper
-                                <FontAwesomeIcon icon={faChevronRight} />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="right-column">
-                        <div className="portfolio-grid first-grid">
-                            <motion.div
-                                className="grid-text"
-                                initial={{ x: -30, opacity: 0 }}
-                                animate={isInView ? { x: 0, opacity: 1 } : { x: -30, opacity: 0 }}
-                                transition={{ delay: 0.2 }}
-                            >
-                                <p>Crafted by</p>
-                                <p>Professional UI Designer</p>
-                            </motion.div>
-                            <motion.div
-                                className="grid-image"
-                                initial={{ y: 30, opacity: 0 }}
-                                animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
-                                transition={{ delay: 0.2 }}
-                            >
-                                <Image alt="rajawali website screenshot" src="/assets/images/rajawali-ss.webp" width={400} height={400} />
-                            </motion.div>
-                            <motion.div
-                                className="grid-card"
-                                initial={{ y: 30, opacity: 0 }}
-                                animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
-                                transition={{ delay: 0.3 }}
-                            >
-                                <div className="card-image">
-                                    <Image alt="mirza gozali" src="/assets/images/mirza.webp" width={108} height={108} />
-                                </div>
-                                <div className="card-text">
-                                    <p>Mirza Gozali</p>
-                                    <p>UI/UX Designer</p>
-                                    <a href="https://solos.work/@mirzagozali" className="portfolio-link">
-                                        Visit Profile
-                                    </a>
-                                </div>
-                            </motion.div>
-                        </div>
-                        <div className="portfolio-grid second-grid">
-                            <motion.div
-                                className="grid-text"
-                                initial={{ x: -30, opacity: 0 }}
-                                animate={isInView ? { x: 0, opacity: 1 } : { x: -30, opacity: 0 }}
-                                transition={{ delay: 0.2 }}
-                            >
-                                <p>With Language</p>
-                                <p>Selection Feature</p>
-                            </motion.div>
-                            <motion.div
-                                className="grid-video"
-                                initial={{ x: -30, opacity: 0 }}
-                                animate={isInView ? { x: 0, opacity: 1 } : { x: -30, opacity: 0 }}
-                                transition={{ delay: 0.3 }}
-                            >
-                                <video autoPlay loop muted playsInline width={220} height={310}>
-                                    <source src="/assets/videos/rajawali-lang-3.mp4" type="video/mp4" />
-                                </video>
-                            </motion.div>
-                        </div>
-                        <div className="portfolio-grid third-grid">
-                            <motion.div
-                                className="grid-text"
-                                initial={{ y: -30, opacity: 0 }}
-                                animate={isInView ? { y: 0, opacity: 1 } : { y: -30, opacity: 0 }}
-                                transition={{ delay: 0.5 }}
-                            >
-                                <p>SEO</p>
-                                <p>Friendly</p>
-                            </motion.div>
-                            <motion.div
-                                className="grid-logo-container"
-                                initial={{ y: 30, opacity: 0 }}
-                                animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
-                                transition={{ delay: 0.5 }}
-                            >
-                                <Image alt="google" src="/assets/images/google.webp" width={24} height={24} />
-                                <Image alt="bing" src="/assets/images/bing.webp" width={24} height={24} />
-                                <Image alt="yahoo" src="/assets/images/yahoo.webp" width={24} height={24} />
-                            </motion.div>
-                        </div>
-                        <div className="portfolio-grid fourth-grid">
-                            <motion.div
-                                className="grid-text"
-                                initial={{ y: -30, opacity: 0 }}
-                                animate={isInView ? { y: 0, opacity: 1 } : { y: -30, opacity: 0 }}
-                                transition={{ delay: 0.5 }}
-                            >
-                                <p>Responsive</p>
-                                <p>Layout</p>
-                            </motion.div>
-                            <motion.div
-                                className="grid-image-fourth"
-                                initial={{ y: 30, opacity: 0 }}
-                                animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
-                                transition={{ delay: 0.5 }}
-                            >
-                                <Image alt="rajawali website screenshot" src="/assets/images/rajawali-responsive.webp" width={1592} height={710} />
-                            </motion.div>
-                        </div>
-                    </div>
-                </div>
+                <h2 className={signika.className + " section-title"}>My works</h2>
+                <PortfolioCard
+                    title="Rajawali Production Indonesia"
+                    description="A profile website for a rigging and event equipment rental company. Designed by professional UI/UX designer."
+                    hashtags={["Responsive", "High Quality UI Design", "SEO Friendly", "Multilingual"]}
+                    hue={2}
+                    color="#b9221d"
+                    icon="/assets/images/favicon-rajawali.png"
+                    preview="/assets/images/rajawali-ss.webp"
+                    link="https://www.rajawaliproduction.com"
+                    category="Company Profile"
+                />
+                <PortfolioCard
+                    title="Es Coklat Duo Boedjang"
+                    description="A website for a local ice chocolate beverage shop in Bogor. Features a fun and entertaining design to attract customers."
+                    hashtags={["Responsive", "Rich of Animation", "SEO Friendly"]}
+                    hue={15}
+                    color="#3b170b"
+                    icon="/assets/images/favicon-boedjang.png"
+                    preview="/assets/images/boedjang-ss.webp"
+                    link="https://escoklatduoboedjang.com/"
+                    category="Company Profile"
+                />
+                <PortfolioCard
+                    title="Ahmad Naufal & Liska Feby"
+                    description="My wedding invitation website. Features a simple and elegant design with an interactive message box."
+                    hashtags={["Interactive", "Elegant Design", "Mobile First"]}
+                    hue={2}
+                    color="#964f57"
+                    icon="/assets/images/favicon-wedding.png"
+                    preview="/assets/images/wedding-ss.webp"
+                    link="https://liskafeby.ahmadnaufal.dev/"
+                    category="Wedding Invitation"
+                    dontUseBorderForPreview={true}
+                />
+                <PortfolioCard
+                    title="Liska Feby Profile Website"
+                    description="Profile website for my wife. Features an elegant yet attractive design with a touch of feminine color."
+                    hashtags={["Responsive", "Interactive", "SEO Friendly"]}
+                    hue={340}
+                    color="#a95a63"
+                    icon="/assets/images/favicon-ayang.png"
+                    preview="/assets/images/ayang-ss.webp"
+                    link="https://liska-feby.web.app"
+                    category="Personal Portfolio"
+                />
             </div>
         </section>
     )
