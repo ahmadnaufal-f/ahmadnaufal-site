@@ -12,6 +12,7 @@ import Header from "@/container/header/header"
 import Background from "@/components/background/background"
 import { Suspense } from "react"
 import Loading from "@/app/loading"
+import ScrollToTop from "@/components/scroll-to-top/scroll-to-top"
 
 const sourceSans = Source_Sans_3({ subsets: ["latin"] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Background />
                 <Header />
                 <Suspense fallback={<Loading />}>{children}</Suspense>
+                <ScrollToTop />
             </body>
         </html>
     )

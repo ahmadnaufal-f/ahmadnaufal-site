@@ -48,8 +48,8 @@ $text-gray: color.change($text-white, $alpha: 0.9);
     height: fit-content;
     width: 100%;
     border-radius: 2.5rem;
-    background: linear-gradient(135deg, hsla(var(--hue), 45%, 40%, 0.3) 0%, hsla(var(--hue), 67%, 80%, 0.1) 75%);
-    outline: solid 1px hsla(var(--hue), 67%, 60%, 0.3);
+    background: linear-gradient(135deg, hsla(var(--hue), var(--saturation), 40%, 0.3) 0%, hsla(var(--hue), var(--saturation), 30%, 0.1) 75%);
+    outline: solid 1px hsla(var(--hue), calc(var(--saturation) + 20%), 60%, 0.3);
     transition: transform 0.2s ease-in-out;
 
     .project-title-container {
@@ -75,7 +75,7 @@ $text-gray: color.change($text-white, $alpha: 0.9);
             position: absolute;
             top: 5%;
             left: 0;
-            width: $title-bar-width;
+            width: var(--box-width);
             height: 90%;
             border-radius: calc($header-height / 2);
             background: var(--color-theme);
@@ -107,7 +107,6 @@ $text-gray: color.change($text-white, $alpha: 0.9);
             width: fit-content;
         }
 
-        
         @media screen and (max-width: 456px) {
             width: 100%;
 

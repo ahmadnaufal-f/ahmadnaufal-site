@@ -43,28 +43,30 @@ function PortfolioCard({
     const ref = useRef<HTMLDivElement>(null)
     const isInView = useInView(ref, { margin: "200px 0px" })
     const initialStyle = {
-        background: "linear-gradient(135deg, hsla(var(--hue), 0%, 40%, 0.1) 0%, hsla(var(--hue), 0%, 80%, 0) 75%)",
-        outline: "solid 1px hsla(var(--hue), 67%, 60%, 0)",
+        "--saturation": "0%",
     }
     const appliedStyle = {
-        background: "linear-gradient(135deg, hsla(var(--hue), 45%, 40%, 0.3) 0%, hsla(var(--hue), 67%, 80%, 0.1) 75%)",
-        outline: "solid 1px hsla(var(--hue), 67%, 60%, 0.3)",
+        "--saturation": "50%",
     }
 
     return (
         <motion.div
             className="project-container glass"
             style={colorVar}
-            animate={!isInView ? initialStyle : appliedStyle}
+            animate={!isInView ? (initialStyle as any) : (appliedStyle as any)}
             ref={ref}
             transition={{ ...sharedTransition, delay: 0.5 }}
         >
-            <div className="project-title-container">
+            <motion.div
+                className="project-title-container"
+                initial={{ "--box-width": 0 } as any}
+                animate={!isInView ? ({ "--box-width": 0 } as any) : ({ "--box-width": "100%" } as any)}
+            >
                 <div className="project-icon">
                     <Image src={icon} alt="Project Icon" width={45} height={45} />
                 </div>
                 <h3 style={titleColor ? { color: titleColor } : {}}>{title}</h3>
-            </div>
+            </motion.div>
             <div className="project-content">
                 <div className="project-preview" style={dontUseBorderForPreview ? { outline: "unset", boxShadow: "unset" } : {}}>
                     <Image src={preview} alt="Project Preview" width={360} height={360} />

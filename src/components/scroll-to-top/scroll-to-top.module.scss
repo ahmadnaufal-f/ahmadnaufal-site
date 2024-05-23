@@ -1,0 +1,33 @@
+@import "../../styles/variables.scss";
+
+.scrollToTopButton {
+    position: fixed;
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.75rem;
+
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: $light-blue;
+    }
+}
+
+.hide {
+    opacity: 0;
+    visibility: hidden;
+}

@@ -1,0 +1,14 @@
+env:
+    # Get these values from the Firebase console
+    - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+      value: AIzaSyAIbNfHRys8Hj4tZvJ4x4-Z7_ECQ8Z-hPw
+    - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+      value: ahmad-naufal-app.firebaseapp.com
+    - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+      value: ahmad-naufal-app
+    - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+      value: ahmad-naufal-app.appspot.com
+    - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+      value: 52578155742
+    - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+      value: 1:52578155742:web:d2e9f9d90c4cd96f3cd64f

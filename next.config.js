@@ -33,5 +33,8 @@ module.exports = {
     env: {
         PORT: process.env.PORT,
     },
+    experimental: {
+        serverActions: true,
+    },
     // ...other config
 }
