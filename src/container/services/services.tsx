@@ -1,15 +1,14 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faBuilding, faShoppingCart, faChartLine, faMobileAlt } from "@fortawesome/free-solid-svg-icons"
 import "./services.scss"
 import { ReactSVG } from "react-svg"
-import { motion } from "framer-motion"
-import { Signika_Negative, Outfit } from "next/font/google"
+import { motion, useInView } from "framer-motion"
+import { Signika_Negative } from "next/font/google"
 
 const signika = Signika_Negative({ subsets: ["latin"] })
-const outfit = Outfit({ subsets: ["latin"] })
 
 type itemProps = {
     title: string
@@ -70,6 +69,9 @@ function Services() {
         setActiveIndex(index)
     }
 
+    const ref = useRef<HTMLDivElement>(null)
+    const isInView = useInView(ref, { margin: "200px 0px" })
+
     useEffect(() => {
         requestAnimationFrame(() => {
             const contents = document.querySelectorAll(".accordion__content")
@@ -119,9 +121,9 @@ function Services() {
     }, [isDesktop])
 
     return (
-        <section className={`cards services-container ${signika.className}`}>
-            <h2 className="services__title">My range of services</h2>
-            <div className={`accordion ${outfit.className}`}>
+        <section className={`cards services-container`}>
+            <h2 className={`${signika.className} services__title`}>My range of services</h2>
+            <div className={"accordion"} ref={ref}>
                 {items.map((item, index) => {
                     return (
                         <motion.div
@@ -130,7 +132,7 @@ function Services() {
                             data-index={index}
                             onClick={() => buttonClickHandler(index)}
                             initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
+                            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
                             transition={{ duration: 0.3, delay: 0.2 + 0.1 * index }}
                         >
                             <button className="accordion__heading" aria-expanded={index === activeIndex} aria-controls={`panel${index}-content`}>
