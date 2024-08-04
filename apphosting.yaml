@@ -12,5 +12,3 @@ env:
       value: 52578155742
     - variable: NEXT_PUBLIC_FIREBASE_APP_ID
       value: 1:52578155742:web:d2e9f9d90c4cd96f3cd64f
-    - variable: HOST
-      value: 0.0.0.0
