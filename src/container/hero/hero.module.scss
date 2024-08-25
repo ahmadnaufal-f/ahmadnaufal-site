@@ -14,16 +14,18 @@ $blue: hsl(189, 94%, 67%);
     place-items: center;
 }
 
-.cards.heroCard {
+.heroCard {
     border: solid 2px $light-blue-transparent-2;
     flex-direction: row-reverse;
 
     @media screen and (max-width: 768px) {
         flex-direction: column-reverse;
+        max-width: 25rem;
     }
 
     & .heroText {
         padding: 0 7.5%;
+        line-height: normal;
 
         a {
             text-decoration: none;
@@ -33,11 +35,11 @@ $blue: hsl(189, 94%, 67%);
             font-size: 1.8rem;
             font-weight: 500;
             color: $text-white;
-            margin-block-end: 0.5rem;
+            margin-block-end: 0.2rem;
         }
 
         & h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
             color: $text-white;
             line-height: 1.2;
@@ -49,6 +51,7 @@ $blue: hsl(189, 94%, 67%);
             color: $white-transparent;
             line-height: 2rem;
             margin: 1rem 0 2rem;
+            font-style: italic;
         }
 
         @media screen and (max-width: 1024px) {
@@ -72,12 +75,6 @@ $blue: hsl(189, 94%, 67%);
             }
         }
 
-        @media screen and (max-width: 480px) {
-            & {
-                padding: 15% 10%;
-            }
-        }
-
         @media screen and (max-width: 860px) {
             & h2 {
                 font-size: 1.2rem;
@@ -96,8 +93,8 @@ $blue: hsl(189, 94%, 67%);
         & button {
             display: flex;
             align-items: center;
-            padding: 0.6rem 1.25rem 0.7rem;
-            border-radius: 0.8rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
             background-color: $light-blue-bright;
             border: solid 2px $white-transparent;
             color: $background-black;
@@ -107,7 +104,6 @@ $blue: hsl(189, 94%, 67%);
             border: unset;
             -webkit-transition: all 0.4s ease-out;
             -moz-transition: all 0.4s ease-out;
-            transform: translateY(0);
             transition: all 0.4s ease-out;
             cursor: pointer;
 
@@ -117,7 +113,6 @@ $blue: hsl(189, 94%, 67%);
 
             &:hover {
                 background: $light-blue;
-                transform: translateY(-4px);
                 opacity: 1;
                 box-shadow: 0 0 15px 3px $blue, 0 0 20px 5px $light-blue-transparent-2;
             }
@@ -137,7 +132,7 @@ $blue: hsl(189, 94%, 67%);
         align-items: center;
         overflow: hidden;
         object-position: 50% 20%;
-        max-width: 540px;
+        max-width: 400px;
 
         @media screen and (max-width: 768px) {
             & {

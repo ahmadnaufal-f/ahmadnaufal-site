@@ -2,11 +2,11 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Signika_Negative } from "next/font/google"
+import { Outfit } from "next/font/google"
 import { sharedTransition } from "@/utils/utils"
 import styles from "./testimonies.module.scss"
 import Image from "next/image"
-const signika = Signika_Negative({ subsets: ["latin"] })
+const outfit = Outfit({ subsets: ["latin"] })
 
 type TestiCardProps = {
     text: string
@@ -68,7 +68,7 @@ const testimoniesArray = [
 export default function Testimonies() {
     return (
         <section className={styles.testimoniesContainer}>
-            <h2 className={`${styles.testimoniesTitle} ${signika.className}`}>Thoughts on My Works</h2>
+            <h2 className={`${styles.testimoniesTitle} ${outfit.className}`}>Thoughts on My Works</h2>
             <div className={styles.testimonies}>
                 {testimoniesArray.map((testimony, index) => (
                     <TestiCard

@@ -1,7 +1,7 @@
 "use client"
 
 import "./portfolio.scss"
-import { Signika_Negative } from "next/font/google"
+import { Outfit } from "next/font/google"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons"
 import { sharedTransition } from "@/utils/utils"
 
-const signika = Signika_Negative({ subsets: ["latin"] })
+const signika = Outfit({ subsets: ["latin"] })
 
 interface PortfolioCardProps {
     title: string
@@ -41,7 +41,7 @@ function PortfolioCard({
 }: PortfolioCardProps) {
     const colorVar = { "--hue": hue, "--color-theme": color } as React.CSSProperties
     const ref = useRef<HTMLDivElement>(null)
-    const isInView = useInView(ref, { margin: "200px 0px" })
+    const isInView = useInView(ref, { margin: "-100px 0px" })
     const initialStyle = {
         "--saturation": "0%",
     }
@@ -65,9 +65,16 @@ function PortfolioCard({
                 <div className="project-icon">
                     <Image src={icon} alt="Project Icon" width={45} height={45} />
                 </div>
-                <h3 style={titleColor ? { color: titleColor } : {}}>{title}</h3>
+                <motion.h3 style={titleColor ? { color: titleColor } : {}} initial={{ opacity: 0 }} animate={{ opacity: isInView ? 1 : 0 }}>
+                    {title}
+                </motion.h3>
             </motion.div>
-            <div className="project-content">
+            <motion.div
+                className="project-content"
+                initial={{ opacity: 0, x: 32 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 32 }}
+                transition={{ duration: 0.4 }}
+            >
                 <div className="project-preview" style={dontUseBorderForPreview ? { outline: "unset", boxShadow: "unset" } : {}}>
                     <Image src={preview} alt="Project Preview" width={360} height={360} />
                 </div>
@@ -86,18 +93,16 @@ function PortfolioCard({
                         <p>Visit site</p>
                     </Link>
                 </div>
-            </div>
+            </motion.div>
         </motion.div>
     )
 }
 
 export default function Portfolio() {
-    const container = useRef<HTMLDivElement>(null)
-
     return (
         <section className="section-container">
             <div className="portfolio-container">
-                <h2 className={signika.className + " section-title"}>My works</h2>
+                <h2 className={signika.className + " section-title"}>My Works</h2>
                 <PortfolioCard
                     title="Rajawali Production Indonesia"
                     description="A profile website for a rigging and event equipment rental company. Designed by professional UI/UX designer."

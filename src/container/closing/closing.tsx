@@ -6,9 +6,9 @@ import styles from "./closing.module.scss"
 import Link from "next/link"
 import Image from "next/image"
 import { sharedTransition } from "@/utils/utils"
-import { Signika_Negative } from "next/font/google"
+import { Outfit } from "next/font/google"
 
-const signika = Signika_Negative({ subsets: ["latin"] })
+const outfit = Outfit({ subsets: ["latin"] })
 
 export default function Closing() {
     const ref = useRef<HTMLDivElement>(null)
@@ -27,7 +27,7 @@ export default function Closing() {
         <section className={styles.closingSection}>
             <div className={styles.closingCard + " glass"} ref={ref}>
                 <div className={styles.closingText}>
-                    <h2 className={signika.className + " " + styles.closingTitle}>Ready to take the next step?</h2>
+                    <h2 className={outfit.className + " " + styles.closingTitle}>Ready to take the next step?</h2>
                     <p className={styles.closingDescription}>
                         If you are interested in working together, or if you have any questions, feel free to reach out to me. I&apos;m always open to
                         new projects and opportunities.
