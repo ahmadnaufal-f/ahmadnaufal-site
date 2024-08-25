@@ -7,14 +7,14 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 config.autoAddCss = false
 
 import type { Metadata } from "next"
-import { Source_Sans_3 } from "next/font/google"
+import { League_Spartan } from "next/font/google"
 import Header from "@/container/header/header"
 import Background from "@/components/background/background"
 import { Suspense } from "react"
 import Loading from "@/app/loading"
 import ScrollToTop from "@/components/scroll-to-top/scroll-to-top"
 
-const sourceSans = Source_Sans_3({ subsets: ["latin"] })
+const leagueSpartan = League_Spartan({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
     title: "Ahmad Naufal Site",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={sourceSans.className}>
+            <body className={leagueSpartan.className}>
                 <Background />
                 <Header />
                 <Suspense fallback={<Loading />}>{children}</Suspense>

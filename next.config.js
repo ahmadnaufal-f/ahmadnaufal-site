@@ -30,11 +30,5 @@ module.exports = {
         unoptimized: true,
     },
     trailingSlash: true,
-    env: {
-        PORT: process.env.PORT,
-    },
-    experimental: {
-        serverActions: true,
-    },
     // ...other config
 }

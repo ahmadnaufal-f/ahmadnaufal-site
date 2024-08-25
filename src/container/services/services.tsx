@@ -6,9 +6,9 @@ import { faUser, faBuilding, faShoppingCart, faChartLine, faMobileAlt } from "@f
 import "./services.scss"
 import { ReactSVG } from "react-svg"
 import { motion, useInView } from "framer-motion"
-import { Signika_Negative } from "next/font/google"
+import { Outfit } from "next/font/google"
 
-const signika = Signika_Negative({ subsets: ["latin"] })
+const outfit = Outfit({ subsets: ["latin"] })
 
 type itemProps = {
     title: string
@@ -39,7 +39,7 @@ const items: itemProps[] = [
         title: "E-Commerce Website",
         icon: faShoppingCart,
         hue: "97",
-        pic: "/assets/images/ecommerce.svg",
+        pic: "/assets/images/ecommerce2.svg",
         description:
             "Reach more customers, sell products online, and boost revenue like never before. Unleash the full potential of your business and open new doors to growth and success with this powerful e-commerce platform!",
     },
@@ -51,14 +51,14 @@ const items: itemProps[] = [
         description:
             "Get ahead of the competition with a powerful dashboard website! Monitor your company's performance, make informed decisions, and increase productivity like never before. Say goodbye to guesswork and hello to data-driven success.",
     },
-    {
-        title: "Mobile App",
-        icon: faMobileAlt,
-        hue: "52",
-        pic: "/assets/images/mobile.svg",
-        description:
-            "Revolutionize your business with an advanced mobile app! With progressive web app technology, you can create a seamless e-commerce experience, dynamic company dashboard, or anything else you need to drive your business forward.",
-    },
+    // {
+    //     title: "Mobile App",
+    //     icon: faMobileAlt,
+    //     hue: "52",
+    //     pic: "/assets/images/mobile.svg",
+    //     description:
+    //         "Revolutionize your business with an advanced mobile app! With progressive web app technology, you can create a seamless e-commerce experience, dynamic company dashboard, or anything else you need to drive your business forward.",
+    // },
 ]
 
 function Services() {
@@ -122,7 +122,7 @@ function Services() {
 
     return (
         <section className={`cards services-container`}>
-            <h2 className={`${signika.className} services__title`}>My range of services</h2>
+            <h2 className={`${outfit.className} services__title`}>My Range of Services</h2>
             <div className={"accordion"} ref={ref}>
                 {items.map((item, index) => {
                     return (
@@ -139,13 +139,13 @@ function Services() {
                                 <div className="accordion__icon">
                                     <FontAwesomeIcon icon={item.icon} />
                                 </div>
-                                <h3 className={signika.className}>{item.title}</h3>
+                                <h3 className={outfit.className}>{item.title}</h3>
                             </button>
                             <div className="accordion__content" id={`panel${index}-content`} aria-hidden={index !== activeIndex}>
-                                <p>{item.description}</p>
                                 <div className="accordion__pic">
                                     <ReactSVG src={item.pic} />
                                 </div>
+                                <p>{item.description}</p>
                             </div>
                         </motion.div>
                     )

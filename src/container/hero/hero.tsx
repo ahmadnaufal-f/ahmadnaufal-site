@@ -1,25 +1,25 @@
-import "./hero.scss"
+import styles from "./hero.module.scss"
 import Image from "next/image"
-import { Signika_Negative } from "next/font/google"
+import { Outfit } from "next/font/google"
 import Link from "next/link"
 
-const signika = Signika_Negative({ subsets: ["latin"] })
+const outfit = Outfit({ subsets: ["latin"] })
 
 function Hero() {
     return (
-        <section className={"heroContainer"}>
-            <div className={"heroCard cards glass"}>
-                <div className={"heroText"}>
-                    <h2>Hi, my name is</h2>
-                    <h1 className={signika.className}>Ahmad Naufal</h1>
-                    <h3>A web developer whose passion lies on both programming and designing</h3>
+        <section className={styles.heroContainer}>
+            <div className={`${styles.heroCard} cards glass`}>
+                <div className={styles.heroText}>
+                    <h2 className={outfit.className}>Hi, my name is</h2>
+                    <h1 className={outfit.className}>Ahmad Naufal</h1>
+                    <h3>I am a web developer whose passion lies on both programming and designing</h3>
                     <Link href="/contact">
-                        <button className={"heroButton"}>
+                        <button className={styles.heroButton}>
                             <p>Contact Me</p>
                         </button>
                     </Link>
                 </div>
-                <div className={"heroPicture"}>
+                <div className={styles.heroPicture}>
                     <Image src={"/assets/images/hero.jpg"} alt="hero" width={896} height={896} />
                 </div>
             </div>

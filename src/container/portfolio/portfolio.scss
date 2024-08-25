@@ -110,10 +110,6 @@ $text-gray: color.change($text-white, $alpha: 0.9);
         @media screen and (max-width: 456px) {
             width: 100%;
 
-            &::after {
-                width: 100%;
-            }
-
             & h3 {
                 font-size: 0.9rem;
             }
