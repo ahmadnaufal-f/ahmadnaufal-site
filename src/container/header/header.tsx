@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub, faCodepen, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import "./header.scss"
 import { motion, useScroll } from "framer-motion"
 import Link from "next/link"
@@ -12,6 +12,8 @@ function Header() {
     const [expanded, setExpanded] = useState(false)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
+    const [hovered, setHovered] = useState(false)
+    const [isBlogHovered, setIsBlogHovered] = useState(false)
     const { scrollYProgress } = useScroll()
 
     const onToggleFunction = () => {
@@ -35,36 +37,46 @@ function Header() {
         target: "_blank",
     }
 
-    const handleScroll = () => {
+    const handleScroll = useCallback(() => {
         const currentScrollPos = window.scrollY
         setVisible(prevScrollPos > currentScrollPos)
         setPrevScrollPos(currentScrollPos)
-    }
+    }, [prevScrollPos])
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll)
         return () => {
             window.removeEventListener("scroll", handleScroll)
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [prevScrollPos])
+    }, [handleScroll])
 
     return (
         <>
-            {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
             <motion.nav
                 className="navbar navbar-expand-md navbar-dark d-flex"
                 aria-expanded={expanded}
                 initial={{ y: 0 }}
-                animate={{ y: visible ? 0 : -71 }}
+                animate={{ y: visible ? 0 : -68 }}
                 transition={{ duration: 0.2 }}
+                onMouseEnter={() => {
+                    if (!visible) {
+                        setVisible(true)
+                        setHovered(true)
+                    }
+                }}
+                onMouseLeave={() => {
+                    if (hovered) {
+                        setVisible(false)
+                        setHovered(false)
+                    }
+                }}
             >
                 <div className="navbar-logo">
                     <Image src="/assets/images/icon.svg" alt="logo" width={32} height={32} />
                     <div className="logo-text">
                         <span className="logo-text-change">
                             <span className="logo-text-head">Ahmad</span>
-                            <span className="logo-text-foot">© 2023</span>
+                            <span className="logo-text-foot">{`© ${new Date().getFullYear()}`}</span>
                         </span>
                         <span className="logo-text-still">Naufal</span>
                     </div>
@@ -90,6 +102,18 @@ function Header() {
                         </Link>
                         <Link href="/about" className="nav-link">
                             About
+                        </Link>
+                        <Link href="/" className="nav-link disabled" onClick={(e) => e.preventDefault()} onMouseEnter={() => setIsBlogHovered(true)} onMouseLeave={() => setIsBlogHovered(false)}>
+                            Blog
+                            {isBlogHovered && (
+                                <motion.div 
+                                    className="disabled-tooltip"
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                >
+                                    <p>Coming soon!</p>
+                                </motion.div>
+                            )}
                         </Link>
                         <Link href="/contact" className="nav-link">
                             Contact

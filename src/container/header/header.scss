@@ -14,6 +14,7 @@ $hamburger-layer-height: 3px;
 
 @import "../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 $background-black-transparent: color.change($background-black, $alpha: 0.9);
+$background-grey-transparent: color.change($background-black-transparent, $lightness: 0.5);
 $light-blue-transparent: color.change($light-blue, $alpha: 0.5);
 $light-blue-transparent-2: color.change($light-blue, $alpha: 0.2);
 $light-blue-lighter: color.change($light-blue, $lightness: 100%);
@@ -132,6 +133,29 @@ $light-blue-lighter: color.change($light-blue, $lightness: 100%);
 
             &::after {
                 height: 2px;
+            }
+        }
+
+        & a.disabled {
+            position: relative;
+
+            & .disabled-tooltip {
+                position: absolute;
+                bottom: -45px;
+                left: 50%;
+                translate: -50% 0;
+                background-color: rgb(84, 84, 84);
+                outline: $light-blue;
+                color: $text-white;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                font-size: 0.9rem;
+                white-space: nowrap;
+                z-index: 10;
+
+                & p {
+                    margin: 0;
+                }
             }
         }
     }

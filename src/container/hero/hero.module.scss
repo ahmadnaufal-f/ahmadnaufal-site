@@ -12,6 +12,8 @@ $blue: hsl(189, 94%, 67%);
     height: 100vh;
     display: grid;
     place-items: center;
+    padding-block: 0;
+    margin-block: 0;
 }
 
 .heroCard {

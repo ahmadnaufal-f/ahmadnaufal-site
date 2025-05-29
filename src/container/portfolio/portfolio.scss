@@ -11,6 +11,7 @@ $text-gray: color.change($text-white, $alpha: 0.9);
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin-block: 4rem;
 }
 
 .portfolio-container {
